@@ -4,10 +4,10 @@ import "./styles/style.css"
 export default function HeaderLg() {
   return (
     <header>
-        <h1 class="logo">Logo</h1>
+        <div class="logo"><a href="/">Logo</a></div>
         <nav class="naOne">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="/home">Home</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Products</a></li>
                 <li><a href="#">Veterinarians</a></li>

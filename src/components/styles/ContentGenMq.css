@@ -1,0 +1,45 @@
+.textOne{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    background:url('../images/img.jpg') no-repeat;
+    background-size:cover ;
+    background-position:center ;
+    width: 100%;
+    margin: 0 auto 0.1%;
+    padding-top: 10%;
+}
+
+.conText{
+    width: 25%;
+    padding: 5px;
+    margin: 10% 10% 10% 10%;
+
+}
+
+.conText h1{
+    font-weight: 700;
+    font-size: 3em;
+    line-height: 55px;
+    letter-spacing: -3px;
+}
+
+.conText p{
+    padding: 5px;
+    margin: 2% auto 0 ;
+}
+
+.conText button{
+    font-weight: bold;
+    margin: 5% 2% 0 0;
+    padding: 13px 5px;
+    width: 30%;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.conText button:hover{
+    background: #09b28e;
+    color: white;
+}

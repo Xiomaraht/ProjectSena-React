@@ -29,16 +29,19 @@ header {
 }
 
 
-.logo{
+.logo a{
     width: 20%;
     letter-spacing: -3px;
     text-align: center;
     cursor: pointer;
     font-size: 2.5em;
     font-weight: bolder;
+    text-decoration: none;
+    margin-left: 4em;
+    color: black;
 }
 
-.logo:hover{
+.logo a:hover{
     color: #13f299;
     transition: 1.5s;
 }
