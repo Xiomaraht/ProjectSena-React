@@ -43,3 +43,26 @@
     background: #09b28e;
     color: white;
 }
+
+.textTwo{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    width: 100%;
+    margin: 0 auto 0;
+    padding: 1%;
+    background: white;
+}
+
+.textTwo h6{
+    color: #09b28e;
+    font-size: 1em;
+}
+
+.conTextTwo{
+    width: 40%;
+    padding: 15px;
+    margin: 4%;
+    border: 1px solid black;
+}
+
