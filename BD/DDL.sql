@@ -28,7 +28,7 @@ CREATE TABLE Clientes (
 	nom VARCHAR (50) NOT NULL,
 	ape1 VARCHAR(30) NOT NULL,
 	ape2 VARCHAR (30),
-	tel INT NOT NULL UNIQUE,
+	tel BIGINT NOT NULL UNIQUE,
 	correo VARCHAR (100) NOT NULL UNIQUE,
 	contrasena VARBINARY (255) NOT NULL,
 	fecNa DATE NOT NULL,
@@ -61,10 +61,10 @@ CREATE TABLE Mascota (
 );
 
 CREATE TABLE Veterinarias (
-    nit VARCHAR (12) NOT NULL,
-    nomVet VARCHAR (40) NOT NULL,
+    nit VARCHAR (20) NOT NULL,
+    nomVet VARCHAR (100) NOT NULL,
     direccion VARCHAR (255) NOT NULL,
-    telVet INT NOT NULL UNIQUE,
+    telVet BIGINT NOT NULL UNIQUE,
     correo VARCHAR (100) NOT NULL UNIQUE,
     veterinariasBarrio INT NOT NULL, 
 	PRIMARY KEY (nit)
@@ -122,11 +122,11 @@ CREATE TABLE Servicios (
 );
 
 CREATE TABLE Proveedores(
-	nit VARCHAR (12) NOT NULL,
-	nombreEmpresa VARCHAR (25) NOT NULL,
-    nombreContacto VARCHAR (15) NOT NULL,
+	nit VARCHAR (20) NOT NULL,
+	nombreEmpresa VARCHAR (100) NOT NULL,
+    nombreContacto VARCHAR (200) NOT NULL,
     direccion VARCHAR (255) NOT NULL,
-    telefono INT NOT NULL UNIQUE,
+    telefono BIGINT NOT NULL UNIQUE,
     correo VARCHAR (100) NOT NULL UNIQUE,
     PRIMARY KEY (nit)
 );
@@ -237,7 +237,6 @@ ADD CONSTRAINT FK_Clientes_Barrio FOREIGN KEY (barrio) REFERENCES Barrio(idBarr)
 ALTER TABLE Raza
 ADD CONSTRAINT FK_Raza_Especie FOREIGN KEY (especie) REFERENCES Especie(idEspecie);
 
--- Tabla Mascota
 ALTER TABLE Mascota
 ADD CONSTRAINT FK_Mascota_Raza FOREIGN KEY (raza) REFERENCES Raza(idRaza),
 ADD CONSTRAINT FK_Mascota_Cliente FOREIGN KEY (clientesNumDo, clientesTipDoc) REFERENCES Clientes(numDo, tipoDoc);
