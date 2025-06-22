@@ -82,7 +82,7 @@ CREATE TABLE Empleados (
     nombre VARCHAR (50) NOT NULL,
     ape1 VARCHAR (30) NOT NULL,
     ape2 VARCHAR (30),
-    veterinariaNit VARCHAR (12) NOT NULL,
+    veterinariaNit VARCHAR (20) NOT NULL,
     rolesIdRol INT NOT NULL,
     correo VARCHAR (100) NOT NULL,
     contrasena VARBINARY (255) NOT NULL
@@ -134,16 +134,16 @@ CREATE TABLE Proveedores(
 CREATE TABLE Inventario (
 	idInventario INT NOT NULL AUTO_INCREMENT,
     productoID INT NOT NULL,
-    cantidadActual DECIMAL (9.2) NOT NULL, 
+    cantidadActual DECIMAL (10,2) NOT NULL, 
     fechaUltimaActualizacion DATE NOT NULL, 
-    veterinariasNit VARCHAR (12) NOT NULL, 
+    veterinariaNit VARCHAR (20) NOT NULL, 
     PRIMARY KEY (idInventario)
 );
 
 CREATE TABLE Producto (
 	idProducto INT NOT NULL,
 	image VARBINARY (65535),
-	precio DECIMAL (10.3) NOT NULL,
+	precio DECIMAL (10,2) NOT NULL,
 	stock INT NOT NULL,
 	idInventario INT NOT NULL, 
 	PRIMARY KEY (idProducto)
@@ -160,7 +160,7 @@ CREATE TABLE Suscripcion (
 
 CREATE TABLE SuscripcionesVeterinarias (
 	idSuscripcionVeterinaria INT NOT NULL AUTO_INCREMENT,
-    veterinariasNit VARCHAR (12) NOT NULL,
+    veterinariaNit VARCHAR (20) NOT NULL,
     idSuscripcion INT NOT NULL, 
     fechaInicio DATE NOT NULL,
     fechaFin DATE NOT NULL,
@@ -187,17 +187,17 @@ CREATE TABLE Facturas (
 	idFactura INT NOT NULL AUTO_INCREMENT,
     fechaFactura DATE NOT NULL,
     fechaVencimiento DATE NOT NULL,
-    subtotal DECIMAL (10.3) NOT NULL,
-    impuestos DECIMAL (10.3) NOT NULL,
+    subtotal DECIMAL (10,2) NOT NULL,
+    impuestos DECIMAL (10,2) NOT NULL,
     totalFactura DECIMAL (10.3) NOT NULL,
-    veterinariasNit VARCHAR (12) NOT NULL,
+    veterinariaNit VARCHAR (20) NOT NULL,
     PRIMARY KEY (idFactura)
 );
 
 CREATE TABLE ClientesVeterinaria (
 	clientesNumDo VARCHAR (15) NOT NULL,
     clientesTipDoc INT NOT NULL,
-    VeterinariaNit VARCHAR (12) NOT NULL
+    VeterinariaNit VARCHAR (20) NOT NULL
 );
 
 CREATE TABLE ConsultasExamenes(
@@ -207,7 +207,7 @@ CREATE TABLE ConsultasExamenes(
 
 CREATE TABLE ServiciosVeterinarias (
 	serviciosIdServicios INT NOT NULL,
-    veterinariasNit VARCHAR (12) NOT NULL
+    veterinariaNit VARCHAR (20) NOT NULL
 );
 CREATE TABLE ProductosInventario (
 	productoId INT NOT NULL,
@@ -222,7 +222,7 @@ proveedoresNit VARCHAR (12) NOT NULL
 
 CREATE TABLE ProductosVeterinarias (
 	productosIdProducto INT NOT NULL, 
-    veterinariasNit VARCHAR (12) NOT NULL
+    veterinariaNit VARCHAR (20) NOT NULL
 );
 
 
@@ -260,20 +260,20 @@ ADD CONSTRAINT FK_Consultas_Empleado FOREIGN KEY (empleadosNumDoc, empleadosTipD
 ADD CONSTRAINT FK_Consultas_Mascota FOREIGN KEY (idMasc) REFERENCES Mascota(idMasc);
 
 ALTER TABLE Inventario
-ADD CONSTRAINT FK_Inventario_Veterinaria FOREIGN KEY (veterinariasNit) REFERENCES Veterinarias(nit);
+ADD CONSTRAINT FK_Inventario_Veterinaria FOREIGN KEY (veterinariaNit) REFERENCES Veterinarias(nit);
 
 ALTER TABLE Producto
 ADD CONSTRAINT FK_Producto_Inventario FOREIGN KEY (idInventario) REFERENCES Inventario(idInventario);
 
 ALTER TABLE SuscripcionesVeterinarias
-ADD CONSTRAINT FK_SuscripVet_Veterinaria FOREIGN KEY (veterinariasNit) REFERENCES Veterinarias(nit),
+ADD CONSTRAINT FK_SuscripVet_Veterinaria FOREIGN KEY (veterinariaNit) REFERENCES Veterinarias(nit),
 ADD CONSTRAINT FK_SuscripVet_Suscripcion FOREIGN KEY (idSuscripcion) REFERENCES Suscripcion(idSuscripcion);
 
 ALTER TABLE PagosSuscripcion
 ADD CONSTRAINT FK_PagosSuscrip_SuscripVet FOREIGN KEY (idSuscripcionVeterinaria) REFERENCES SuscripcionesVeterinarias(idSuscripcionVeterinaria);
 
 ALTER TABLE Facturas
-ADD CONSTRAINT FK_Facturas_Veterinaria FOREIGN KEY (veterinariasNit) REFERENCES Veterinarias(nit);
+ADD CONSTRAINT FK_Facturas_Veterinaria FOREIGN KEY (veterinariaNit) REFERENCES Veterinarias(nit);
 
 ALTER TABLE ClientesVeterinaria
 ADD CONSTRAINT FK_ClientesVet_Cliente FOREIGN KEY (clientesNumDo, clientesTipDoc) REFERENCES Clientes(numDo, tipoDoc),
@@ -285,7 +285,7 @@ ADD CONSTRAINT FK_ConsExam_Examen FOREIGN KEY (examenesIdExam) REFERENCES Examen
 
 ALTER TABLE ServiciosVeterinarias
 ADD CONSTRAINT FK_ServVet_Servicio FOREIGN KEY (serviciosIdServicios) REFERENCES Servicios(idServicios),
-ADD CONSTRAINT FK_ServVet_Veterinaria FOREIGN KEY (veterinariasNit) REFERENCES Veterinarias(nit);
+ADD CONSTRAINT FK_ServVet_Veterinaria FOREIGN KEY (veterinariaNit) REFERENCES Veterinarias(nit);
 
 ALTER TABLE ProveedoresProductos
 ADD CONSTRAINT FK_ProvProd_Producto FOREIGN KEY (productosIdProducto) REFERENCES Producto(idProducto),
@@ -293,7 +293,7 @@ ADD CONSTRAINT FK_ProvProd_Proveedor FOREIGN KEY (proveedoresNit) REFERENCES Pro
 
 ALTER TABLE ProductosVeterinarias
 ADD CONSTRAINT FK_ProdVet_Producto FOREIGN KEY (productosIdProducto) REFERENCES Producto(idProducto),
-ADD CONSTRAINT FK_ProdVet_Veterinaria FOREIGN KEY (veterinariasNit) REFERENCES Veterinarias(nit);
+ADD CONSTRAINT FK_ProdVet_Veterinaria FOREIGN KEY (veterinariaNit) REFERENCES Veterinarias(nit);
 
 # LLaves foraneas de la tabla intermedia entre inventario y producto
  
