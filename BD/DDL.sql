@@ -209,7 +209,12 @@ CREATE TABLE ServiciosVeterinarias (
 	serviciosIdServicios INT NOT NULL,
     veterinariasNit VARCHAR (12) NOT NULL
 );
-
+CREATE TABLE ProductosInventario (
+	productoId INT NOT NULL,
+    inventarioId INT NOT NULL,
+    
+    PRIMARY KEY(productoId, inventarioId)
+);
 CREATE TABLE ProveedoresProductos (
 productosIdProducto INT NOT NULL,
 proveedoresNit VARCHAR (12) NOT NULL
@@ -289,5 +294,15 @@ ADD CONSTRAINT FK_ProvProd_Proveedor FOREIGN KEY (proveedoresNit) REFERENCES Pro
 ALTER TABLE ProductosVeterinarias
 ADD CONSTRAINT FK_ProdVet_Producto FOREIGN KEY (productosIdProducto) REFERENCES Producto(idProducto),
 ADD CONSTRAINT FK_ProdVet_Veterinaria FOREIGN KEY (veterinariasNit) REFERENCES Veterinarias(nit);
+
+# LLaves foraneas de la tabla intermedia entre inventario y producto
+ 
+ALTER TABLE ProductosInventario
+ADD CONSTRAINT FK_ProdInven_Producto 
+FOREIGN KEY (productoId) REFERENCES Producto(idProducto);
+
+ALTER TABLE ProductosInventario
+ADD CONSTRAINT FK_ProdInven_Inventario 
+FOREIGN KEY (inventarioId) REFERENCES Inventario(idInventario);
 
 
