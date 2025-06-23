@@ -197,32 +197,37 @@ CREATE TABLE Facturas (
 CREATE TABLE ClientesVeterinaria (
 	clientesNumDo VARCHAR (15) NOT NULL,
     clientesTipDoc INT NOT NULL,
-    VeterinariaNit VARCHAR (20) NOT NULL
+    VeterinariaNit VARCHAR (20) NOT NULL, 
+    
+    PRIMARY KEY(clientesNumDo, clientesTipDoc, VeterinariaNit)
 );
 
 CREATE TABLE ConsultasExamenes(
 	consultasIdConsulta INT NOT NULL,
-    examenesIdExam INT NOT NULL
+    examenesIdExam INT NOT NULL,
+    PRIMARY KEY(consultasIdConsulta, examenesIdExam)
 );
 
 CREATE TABLE ServiciosVeterinarias (
 	serviciosIdServicios INT NOT NULL,
-    veterinariaNit VARCHAR (20) NOT NULL
+    veterinariaNit VARCHAR (20) NOT NULL,
+    PRIMARY KEY (serviciosIdServicios, veterinariaNit)
 );
 CREATE TABLE ProductosInventario (
 	productoId INT NOT NULL,
     inventarioId INT NOT NULL,
-    
     PRIMARY KEY(productoId, inventarioId)
 );
 CREATE TABLE ProveedoresProductos (
-productosIdProducto INT NOT NULL,
-proveedoresNit VARCHAR (12) NOT NULL
+	productosIdProducto INT NOT NULL,
+	proveedoresNit VARCHAR (12) NOT NULL,
+	PRIMARY KEY(productosIdProducto, proveedoresNit)
 );
 
 CREATE TABLE ProductosVeterinarias (
 	productosIdProducto INT NOT NULL, 
-    veterinariaNit VARCHAR (20) NOT NULL
+    veterinariaNit VARCHAR (20) NOT NULL,
+    PRIMARY KEY(productosIdProducto, veterinariaNit)
 );
 
 

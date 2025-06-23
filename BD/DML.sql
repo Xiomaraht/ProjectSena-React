@@ -1,6 +1,6 @@
 # ESTOS DATOS SON NECESARIOS PARA PROBAR LOS PPROCEDIMIENTOS
 -- 1. Tabla: TipoDoc
-INSERT INTO `TipoDoc` (`nombre`) VALUES
+INSERT INTO TipoDoc(nombre) VALUES
 ('Cédula de Ciudadanía'),
 ('Cédula de Extranjería'),
 ('Pasaporte'),
@@ -11,7 +11,7 @@ INSERT INTO `TipoDoc` (`nombre`) VALUES
 
 -- 2. Tabla: Localidades
 -- Se insertan 5 localidades de Bogotá como ejemplo.
-INSERT INTO `Localidades` (`nombre`) VALUES
+INSERT INTO Localidades (nombre) VALUES
 ('Usaquén'),
 ('Chapinero'),
 ('Teusaquillo'),
@@ -20,7 +20,7 @@ INSERT INTO `Localidades` (`nombre`) VALUES
 
 -- 3. Tabla: Barrio
 -- Se insertan barrios y se asocian a las localidades creadas anteriormente (IDs 1-5).
-INSERT INTO `Barrio` (`nombre`, `idLocalidad`) VALUES
+INSERT INTO Barrio(nombre, idLocalidad) VALUES
 ('Santa Bárbara', 1),   -- Usaquén
 ('Quinta Camacho', 2),  -- Chapinero
 ('Galerías', 3),        -- Teusaquillo
@@ -28,7 +28,7 @@ INSERT INTO `Barrio` (`nombre`, `idLocalidad`) VALUES
 ('Castilla', 5);         -- Kennedy
 
 -- 4. Tabla: Especie
-INSERT INTO `Especie` (`nombre`) VALUES
+INSERT INTO Especie (nombre) VALUES
 ('Perro'),
 ('Gato'),
 ('Ave'),
@@ -37,7 +37,7 @@ INSERT INTO `Especie` (`nombre`) VALUES
 
 -- 5. Tabla: Raza
 -- Se asocian a las especies creadas anteriormente (IDs 1-5).
-INSERT INTO `Raza` (`nombre`, `especie`) VALUES
+INSERT INTO Raza(nombre, especie) VALUES
 ('Golden Retriever', 1), -- Perro
 ('Siamés', 2),           -- Gato
 ('Canario', 3),          -- Ave
@@ -45,7 +45,7 @@ INSERT INTO `Raza` (`nombre`, `especie`) VALUES
 ('Tortuga de Orejas Rojas', 5); -- Reptil
 
 -- 6. Tabla: Roles
-INSERT INTO `Roles` (`nombre`) VALUES
+INSERT INTO Roles(nombre) VALUES
 ('Médico'),
 ('Recepcionista'),
 ('Admin'),
@@ -56,7 +56,7 @@ INSERT INTO `Roles` (`nombre`) VALUES
 ('Gerente de Tienda');
 
 -- 7. Tabla: Examenes
-INSERT INTO `Examenes` (`nombre`) VALUES
+INSERT INTO Examenes(nombre) VALUES
 ('Perfil Sanguíneo Completo'),
 ('Análisis de Orina (Urianálisis)'),
 ('Radiografía de Tórax'),
@@ -64,7 +64,7 @@ INSERT INTO `Examenes` (`nombre`) VALUES
 ('Prueba de Alergias');
 
 -- 8. Tabla: Servicios
-INSERT INTO `Servicios` (`nombre`) VALUES
+INSERT INTO Servicios(nombre) VALUES
 ('Consulta General'),
 ('Vacunación Anual'),
 ('Baño y Peluquería'),
@@ -72,7 +72,7 @@ INSERT INTO `Servicios` (`nombre`) VALUES
 ('Guardería por Día');
 
 -- 9. Tabla: Suscripcion
-INSERT INTO `Suscripcion` (`idSuscripcion`, `nombre`, `descripcion`, `costoMensual`, `estado`) VALUES
+INSERT INTO Suscripcion(idSuscripcion, nombre, descripcion, costoMensual, estado) VALUES
 (1, 'Plan Básico', 'Acceso a descuentos en consultas y productos básicos.', '30000', 'Activo'),
 (2, 'Plan Bienestar', 'Incluye consultas ilimitadas y un chequeo anual.', '75000', 'Activo'),
 (3, 'Plan Premium', 'Cobertura completa incluyendo exámenes y descuentos en cirugías.', '150000', 'Activo'),
