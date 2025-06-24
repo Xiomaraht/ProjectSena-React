@@ -141,7 +141,7 @@ CREATE TABLE Inventario (
 );
 
 CREATE TABLE Producto (
-	idProducto INT NOT NULL,
+	idProducto INT NOT NULL AUTO_INCREMENT,
 	image VARBINARY (65535),
 	precio DECIMAL (10,2) NOT NULL,
 	stock INT NOT NULL,
@@ -150,7 +150,7 @@ CREATE TABLE Producto (
 );
 
 CREATE TABLE Suscripcion (
-	idSuscripcion INT NOT NULL,
+	idSuscripcion INT NOT NULL AUTO_INCREMENT,
     nombre VARCHAR (100) NOT NULL,
     descripcion VARCHAR (255) NOT NULL UNIQUE,
     costoMensual VARCHAR (50) NOT NULL,
@@ -171,7 +171,7 @@ CREATE TABLE SuscripcionesVeterinarias (
 );
 
 CREATE TABLE PagosSuscripcion (
-	idPagoSuscripcion INT NOT NULL,
+	idPagoSuscripcion INT NOT NULL AUTO_INCREMENT,
     idSuscripcionVeterinaria INT NOT NULL, 
     montoPagado CHAR (10) NOT NULL,
     fechaPagado TIMESTAMP NOT NULL, 
