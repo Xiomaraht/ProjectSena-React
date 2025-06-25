@@ -102,7 +102,6 @@ CREATE TABLE Consultas (
 	idConsulta INT NOT NULL AUTO_INCREMENT,
 	fecCon DATE NOT NULL,
 	reporConsult TEXT NOT NULL,
-	resultExam INT NOT NULL UNIQUE,
 	empleadosNumDoc INT NOT NULL,
 	empleadosTipDoc INT NOT NULL,
 	idMasc INT NOT NULL,
