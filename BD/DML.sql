@@ -81,36 +81,35 @@ INSERT INTO Suscripcion(idSuscripcion, nombre, descripcion, costoMensual, estado
 
 -- 10. Tabla: Citas
 INSERT INTO Citas(fechaYhora, clientesNumDo, clientesTipDoc, empleadosNumDo, empleadosTipDoc) VALUES
-("24/06/2025-10:00", '1016595990', 'Cédula de Ciudadanía', '5959901016', 'Cédula de Extranjería'),
-("24/07/2025-10:00", '1016595991', 'Cédula de Extranjería', '4959901016', 'Pasaporte'),
-("24/08/2025-10:00", '1016595992', 'Pasaporte', '3959901016', 'Cédula de Ciudadanía'),
-("24/09/2025-10:00", '1016595993', 'Permiso Especial de Permanencia', '2959901016', 'Cédula de Extranjería'),
-("24/10/2025-10:00", '1016595994', 'Cédula de Extranjería', '1959901016', 'Permiso Especial de Permanencia');
+("24/06/2025 10:00:10", 123456789, 1, 10101010, 1),
+("24/07/2025-10:00:00", 987654321, 2, 10101010, 1),
+("24/08/2025-10:00:00", 456789123, 1, 10101010, 1),
+("24/09/2025-10:00:00", 789123456, 1, 10101010, 1),
+("24/10/2025-10:00:00", 321654987, 2, 10101010, 1);
 
--- 11. Tabla: Consultas
-INSERT INTO Consultas(fecCon, reporConsult, resultExam, empleadosNumDoc, empleadosTipDoc, idMasc) VALUES
-("24/06/2025-10:00", '1016595990', 'Cédula de Ciudadanía', '5959901016', 'Cédula de Extranjería',1),
-("24/07/2025-10:00", '1016595991', 'Cédula de Extranjería', '4959901016', 'Pasaporte',2),
-("24/08/2025-10:00", '1016595992', 'Pasaporte', '3959901016', 'Cédula de Ciudadanía',3),
-("24/09/2025-10:00", '1016595993', 'Permiso Especial de Permanencia', '2959901016', 'Cédula de Extranjería',4),
-("24/10/2025-10:00", '1016595994', 'Cédula de Extranjería', '1959901016', 'Permiso Especial de Permanencia',5);
- -- report consulta y resultado examen faltan
- 
- -- 12. Tabla: Inventario
+-- 11. Tabla: Consultas ( resultExam se quito por indefinidamente)
+INSERT INTO Consultas(fecCon, reporConsult, empleadosNumDoc, empleadosTipDoc, idMasc) VALUES 
+("24/06/2025-10:00", 'lorem ipsum', 10101010, 1, 1),
+("24/07/2025-10:00", 'lorem ipsum', 10101010, 1, 2),
+("24/08/2025-10:00", 'lorem ipsum', 10101010, 1, 3),
+("24/09/2025-10:00", 'lorem ipsum', 10101010, 1, 4),
+("24/10/2025-10:00", 'lorem ipsum', 10101010, 1, 5);
+
+ -- 12. Tabla: Producto
+INSERT INTO Producto (image, precio, stock, idInventario) VALUES
+(X'FFD8FFE000104A46494600010100000100010000FFDB0043000503040404030504040405050506070C08070707070F0B0B090C110F1212110F111110121412131313121111131518171513161313141414161C1A1616181B1D1D1D12131517171714151B1C1A1C1C1C', 85000, 10, 1), -- Alimento Premium para Perros Adultos.jpg
+(X'FFD8FFE000104A46494600010100000100010000FFDB0043000503040404030504040405050506070C08070707070F0B0B090C110F1212110F111110121412131313121111131518171513161313141414161C1A1616181B1D1D1D12131517171714151B1C1A1C1C1C', 32000, 23, 2), -- Juguete Interactivo para Gatos.jpg
+(X'FFD8FFE000104A46494600010100000100010000FFDB0043000503040404030504040405050506070C08070707070F0B0B090C110F1212110F111110121412131313121111131518171513161313141414161C1A1616181B1D1D1D12131517171714151B1C1A1C1C1C', 45000, 16, 3), -- Champú Hipoalergénico para Mascotas Sensibles.jpg
+(X'FFD8FFE000104A46494600010100000100010000FFDB0043000503040404030504040405050506070C08070707070F0B0B090C110F1212110F111110121412131313121111131518171513161313141414161C1A1616181B1D1D1D12131517171714151B1C1A1C1C1C', 68000, 11, 4), -- Collar Antipulgas y Garrapatas.jpg
+(X'FFD8FFE000104A46494600010100000100010000FFDB0043000503040404030504040405050506070C08070707070F0B0B090C110F1212110F111110121412131313121111131518171513161313141414161C1A1616181B1D1D1D12131517171714151B1C1A1C1C1C', 20000, 27, 5); -- Snacks Dentales para Perros Pequeños.jpg
+
+ -- 13. Tabla: Inventario
 INSERT INTO Inventario(productoID, cantidadActual, fechaUltimaActualizacion, veterinariaNit) VALUES
-(1, 10, "24/06/2025-10:00", '595990101'),
-(2, 16, "24/06/2025-10:00", '495990101'),
-(3, 11, "24/06/2025-10:00", '395990101'),
-(4, 17, "24/06/2025-10:00", '295990101'),
-(5, 12, "24/06/2025-10:00", '195990101');
-
- -- 13. Tabla: Producto
-INSERT INTO Producto(image, precio, stock, idInventario) VALUES
-("image_1", 10000, 10, 1),
-("image_2", 16000, 23, 2),
-("image_3", 11000, 16, 3),
-("image_4", 17000, 11, 4),
-("image_5", 1200, 27, 5);
+(1, 10, "24/06/2025-10:00", '900.123.456-7'),
+(2, 16, "24/06/2025-10:00", '901.234.567-8'),
+(3, 11, "24/06/2025-10:00", '805.345.678-9'),
+(4, 17, "24/06/2025-10:00", '900.456.789-0'),
+(5, 12, "24/06/2025-10:00", '800.567.890-1');
 
  -- 14. Tabla: suscripciónesVeterinarias
 INSERT INTO suscripciónesVeterinarias(veterinariaNit, idSuscripcion, fechaInicio, fechaFin, estadoSuscripcion, fechaUltimoPago, proximoPago) VALUES
@@ -135,4 +134,3 @@ INSERT INTO Facturas(fechaFactura, fechaVencimiento, subtotal, impuestos, totalF
 ("24/06/2025", "24/10/2025", 22500, 4275, 26775),
 ("24/06/2025", "24/10/2025", 11250, 2137, 13387),
 ("24/06/2025", "24/10/2025", 5500, 1045, 6545);
-
