@@ -2,7 +2,7 @@ import "./styles/style.css"
 
 
 export default function HeaderLg() {
-  return (
+    return (
     <header>
         <div class="logo"><a href="/">Logo</a></div>
         <nav class="naOne">
@@ -23,6 +23,6 @@ export default function HeaderLg() {
             </div>
         </div>
     </header>
-  )
+    )
 }
 

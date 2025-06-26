@@ -12,12 +12,10 @@ export default function Login() {
                     <p>Ingresa tus credenciales para acceder a tu cuenta</p>
                 </div>
                 <div className="contUser">
-                    <input type="email" placeholder='Email de Usuario'/>
-                    <i class="ri-user-line"></i>
+                    <input type="email" placeholder='Correo Electronico'/>
                 </div>
-                <div className="contUser">
+                <div className="contUser" id='secundario'>
                     <input type="password" placeholder='Contraseña' />
-                    <i class="ri-user-line"></i>
                 </div>
                 <div className="questions">
                     <p>¿Ha olvidado su contraseña?</p>
@@ -26,7 +24,9 @@ export default function Login() {
                     <input type="checkbox" />
                     <p>Guardar informacion de inicio de sesión</p>
                 </div>
-                <button type="submit">Enviar</button>
+                <div className="contBtn">
+                    <button type="submit">Enviar</button>
+                </div>
             </form>
         </div>
     )
